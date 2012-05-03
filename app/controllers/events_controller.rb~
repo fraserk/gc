@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
- 
+  autocomplete :venue, :name, :full => true
   before_filter :authenticate_user!, :except => [:index,:show]
   def index
     
