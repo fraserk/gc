@@ -1,0 +1,41 @@
+<div class="twelve columns white_bg ">
+
+
+
+	<% @events_date.each do |eventdate, events|%> 
+		<div class="twelve columns">
+		<h3><%= eventdate.strftime("%B %d %Y")  %></h3>
+		</div>
+		<hr />
+		<% for event in events %>
+		
+			<div class="four columns ">
+				<%= link_to (image_tag  event.flyer_url(:small_thumb)),event  if event.flyer?  %>
+				<%= link_to (image_tag("gc.gif")) ,event if event.flyer.blank?%>		
+				<div class="banner">	
+				<h4><%= link_to event.name, event %> </h4>
+				@ <%= event.location.location_name %>
+		</div>
+			</div>
+		
+	<% end %>
+	<% end %>
+	
+	 </div>
+	
+	<div class=" pag_dev columns digg_pagination"> 
+		<%= will_paginate @events %>
+		</div>
+		
+		<% content_for :sidbar do %>
+<div class="four columns">
+	<h4>Welcome:</h4>
+	<p>
+		To the New Goingclubing.com. Here you can find infomation on Nighlife and night clubs in NYC, 
+		Brooklyn, Queens and the Bronx.You will find the latest Hip-Hop,
+		 R&B, Raggae and Reggaeton parties in New York City. 
+	</p>
+	
+</div>
+<% end %>
+	

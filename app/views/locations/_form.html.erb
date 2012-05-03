@@ -1,0 +1,53 @@
+
+<%= form.fields_for :location do |loc| %>
+ 
+  
+  <div class="field search">
+    <%= label_tag :search, 'Search for a venue:' %>
+    <%= text_field_tag :location_search, nil, :size => 60, :type => "search" %>
+  </div>
+
+  <br />
+  
+ 
+  <div class="six columns alpha">
+    <%= loc.label :location_name %>
+    <%= loc.text_field :location_name, :size => 18 %>
+  </div>  
+  
+    <div class="six columns omega">
+    <%= loc.label :address, "Full Address" %>
+    <%= loc.text_field :address, :size => 60 %>
+  </div>
+  <div class="twelve columns">
+    <%= loc.label :phone_number %> 
+    <%= loc.text_field :phone_number, :size => 18 %>
+  </div>
+        
+  <div class="six columns alpha">
+    <%= loc.label :city %>
+    <%= loc.text_field :city, :size => 18 %>
+   </div>
+    <div class="six columns omega">
+    <%= loc.label :state %>
+    <%= loc.text_field :state, :size => 18 %>
+    </div>
+    <div class="twelve columns">
+    <%= loc.label :zipcode %>
+    <%= loc.text_field :zipcode, :size => 6 %>
+  </div>
+    
+    <%= loc.hidden_field :country, :size => 18 %>
+ 
+  
+ 
+    
+    <%= loc.hidden_field :lat, :size=> 18 %>
+    
+    <%= loc.hidden_field :lng, :size=> 18 %>
+    
+  
+<% end %>
+
+
+<%= render :partial => "locations/googlemap" %>

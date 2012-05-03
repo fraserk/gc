@@ -1,0 +1,8 @@
+<h3>Venue List</h3>
+
+<p><%= link_to 'Add Venue', new_venue_path %></p>
+<ul>
+<% @venues.each do |venue| %>
+	<li><%= venue.name %></li>
+<% end %>
+</ul>

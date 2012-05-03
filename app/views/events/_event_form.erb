@@ -1,0 +1,56 @@
+	<div class="twelve columns white_bg ">
+	<% if @event.errors.any? %>
+					<h2>Errors</h2>
+					<ul>
+					  <% @event.errors.full_messages.each do |message| %>
+					  <li><%= message %></li>
+					  <%end%>
+					</ul>
+		<%end%>
+
+<%= form_for (@event) do |f|%>
+
+<%= f.label :name %> 
+<%= f.text_field :name%>
+
+
+<%= f.label :fee %> 
+<%= f.text_field :fee %>
+<div class="twelve columns">
+
+
+<%= render :partial => 'locations/form',
+             :locals => {:form => f} %>
+
+</div>
+
+<%= f.hidden_field :user_id, {:value => current_user.id} %>
+
+<%= f.label :event_date, 'When:'%> 
+<%= f.text_field :event_date %>
+
+<%= f.label :recurr, 'Is this a Recurring Event?:'%>
+<%= f.check_box :recurr %>
+
+
+<%= f.label :flyer, 'Add a Flyer:' %>
+ <%= f.file_field :flyer %> <br />
+ or (Enter a Url of Flyer)
+ <%= f.text_field :remote_flyer_url %> 
+ <%= f.hidden_field :flyer_cache %>
+ <label>
+ 	<% if @event.flyer? %>
+      <%= f.check_box :remove_flyer %>
+      Remove Flyer
+  <% end %>    
+    </label><%= image_tag(@event.flyer_url) if @event.flyer? %>
+
+<%= f.label :detail, 'Add Some more detail about this event:' %> 
+<%= f.text_area :detail %>
+
+<%= f.submit %>
+
+<% end %>
+
+
+</div>

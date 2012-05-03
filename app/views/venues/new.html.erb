@@ -1,0 +1,8 @@
+<div id="your_dialog">
+<%= form_for (@venue) remote: true do |f| %>
+	<%= f.label :name, 'Venue Name:' %>
+	<%= f.text_field :name %>
+	<%= f.submit %>
+
+<% end %>
+</div>

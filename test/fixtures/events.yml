@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  free: MyString
+  when: 2012-03-11 12:14:44
+  detail: MyText
+
+two:
+  name: MyString
+  free: MyString
+  when: 2012-03-11 12:14:44
+  detail: MyText

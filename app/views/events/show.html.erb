@@ -1,0 +1,50 @@
+<div class="twelve columns white_bg ">
+
+		<h3><%= @event.name %></h3>
+		
+		
+	<hr />
+		 
+		<p></p><%= @event.detail %></p>
+		Posted By:<%= @event.user.username %>  <br />
+		
+		<hr />
+		
+		<%= image_tag  @event.flyer_url(:thumb) if @event.flyer? %>
+		
+		
+
+
+</div>
+
+<% content_for :sidbar do %>
+<div class="four columns">
+	<h3>When:</h3>
+	<hr />
+	<%= @event.event_date.strftime("%B %d %Y") %> 
+</div>
+
+<div class="four columns">
+	<h3>Where:</h3>
+	<hr />
+	<%= @event.location.location_name %>  <br />
+	<%= @event.location.address %> <br />
+	<%= @event.location.city %> <%= @event.location.state %>, <%= @event.location.zipcode %>  <br /><br />
+	Phone: <%= @event.location.phone_number %> 
+</div>
+
+<div class="four columns">
+	<h3>How Much:</h3>
+	<hr />
+	<%= @event.fee %>
+</div>
+<div class="four columns">
+	<h3>Share:</h3>
+	<hr />
+	<span class='st_facebook_vcount' displayText='Facebook'></span>
+	<span class='st_twitter_vcount' displayText='Tweet'></span>
+	<span class='st_pinterest_vcount' displayText='Pinterest'></span>
+</div>
+
+<% end%>
+
