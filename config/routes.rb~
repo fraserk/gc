@@ -8,7 +8,7 @@ Events::Application.routes.draw do
   resources :venues
   
     resources :events   do
-     # get :autocomplete_venue_name, :on => :collection
+      get :autocomplete_venue_name, :on => :collection
      # get "complete"
     resources :schedules
     resources :locations
