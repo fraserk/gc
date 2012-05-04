@@ -47,7 +47,7 @@ body{
 }
 
 .ContentHolder .twelve{
-	
+	margin-left: 10px;
 }
 .footer{
 	background: #000;
@@ -69,8 +69,9 @@ body{
 	height: 30px;
 	border-bottom: 1px solid #ddd;
 }
- .ac a {
-	background: yellow;
+ .layout_bg {
+	background: #fff;
+	padding-right: 10px;
 }
 
 /* #error and notice
