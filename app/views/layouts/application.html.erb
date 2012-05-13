@@ -2,7 +2,8 @@
 <html>
 <head>
   <%= display_meta_tags :site => 'NY Going Clubbing | New York Nightlubs Party Guide' %>
-  <%= stylesheet_link_tag    "application" %>
+  <%= stylesheet_link_tag :all %>
+
   <%= csrf_meta_tags %>
   
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
@@ -82,7 +83,8 @@
 </div>	
    
 
- <%= javascript_include_tag "application" %> 
+<%= javascript_include_tag :defaults %>
+
 
 
 </body>
