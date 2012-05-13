@@ -6,9 +6,12 @@ gem "rmagick"
 gem "carrierwave"
 #gem 'rails3-jquery-autocomplete'
 gem 'devise'
-gem 'will_paginate'
+gem 'kaminari'
 gem 'friendly_id'
 gem 'mysql2'
+gem 'meta-tags', :require => 'meta_tags'
+gem 'rails_admin'
+#gem 'tlsmail' 
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'

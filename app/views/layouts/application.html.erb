@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Events</title>
+  <%= display_meta_tags :site => 'NY Going Clubbing | New York Nightlubs Party Guide' %>
   <%= stylesheet_link_tag    "application" %>
   <%= csrf_meta_tags %>
   
@@ -24,7 +24,7 @@
 				<li>
 					<% if user_signed_in? %> <%=  link_to current_user.username, edit_user_registration_path %> (<%= link_to 'Logout', destroy_user_session_path %>)
 					<%else%>
-					 <%= link_to 'Log in', new_user_session_path%>
+					 <%= link_to 'Log in', new_user_session_path%> / <%= link_to 'Sign Up', 'users/sign_up' %> 
 					<%end%>
 					</> 	
 				<li>Contact Us<li/>
@@ -64,21 +64,26 @@
 				<li>
 					<% if user_signed_in? %> <%=  link_to current_user.username, edit_user_registration_path %> (<%= link_to 'Logout', destroy_user_session_path %>)
 					<%else%>
-					 <%= link_to 'Log in', new_user_session_path%>
+					 <%= link_to 'Log in', new_user_session_path%> / <%= link_to 'Sign Up', 'users/sign_up' %> 
 					<%end%>
 					</> 	
 				<li>Contact Us<li/>
 			</ul>	
 	</div>
-	
+	<div class="five columns">
+		    Sites We Like.
+    <ul>
+        <li> <a href="http://newyork.joonbug.com/" target="_blank">Halloween and New Years Eve Parties NYC</a>  </li>
+        <li><a href="http://www.newyearsevecentral.com" target="_blank">New Years Eve Parties</a></li>
+        <li><a href="http://www.nyfreelancers.com" target="_blank">New York Web Designers</a></li>
+        <li><a href="http://www.bachelorvegas.com/nightclubs.html" title="Las Vegas night clubs"> Las Vegas Nightclubs </a></li>
+    </ul>
 	</div>
 </div>	
    
 
  <%= javascript_include_tag "application" %> 
- =
-<script>
- 
-</script>
+
+
 </body>
 </html>

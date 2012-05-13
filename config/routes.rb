@@ -1,6 +1,9 @@
 Events::Application.routes.draw do
 
 
+
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   devise_for :users
   devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' end
   match 'myaccount' => 'events#myaccount'
@@ -10,7 +13,6 @@ Events::Application.routes.draw do
     resources :events   do
      # get :autocomplete_venue_name, :on => :collection
      # get "complete"
-    resources :schedules
     resources :locations
   end
   

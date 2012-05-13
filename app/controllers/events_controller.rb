@@ -1,12 +1,15 @@
 class EventsController < ApplicationController
  
   before_filter :authenticate_user!, :except => [:index,:show]
+  before_filter :check_event_owner, :only => :edit
   def index
     
-    @events = Event.paginate(:page => params[:page], :per_page => 6).where("expire != ?", true).order("event_date ASC")
+    @events = Event.where("expire != ?", true).order("event_date ASC").page(params[:page]).per(5)
     @events_date = @events.group_by {|t| t.event_date}
-    
     #Post.paginate()
+    @page_description = 'New York & Brooklyn Nightlife party guide. Providing night club listing and party listings. Get on the vip guestlist to the hottest night clubs.'
+    @page_keywords    = 'New York City, Manhattan, Night Clubs, Dance Clubs, night life, bars, music, dancing, disco, lounges, under 21, Pary Promoter, Promotion, Night Clubs in Ny, NY nightclub, nite club, vip'
+  
   end
 
   def new
@@ -29,6 +32,8 @@ class EventsController < ApplicationController
  
   def show
     @event = Event.find(params[:id])
+    @page_description = 'New York & Brooklyn Nightlife party guide. Providing night club listing and party listings. Get on the vip guestlist to the hottest night clubs.'
+    @page_keywords    = 'New York City, Manhattan, Night Clubs, Dance Clubs, night life, bars, music, dancing, disco, lounges, under 21, Pary Promoter, Promotion, Night Clubs in Ny, NY nightclub, nite club, vip'
   end
 
   def edit
@@ -47,9 +52,10 @@ class EventsController < ApplicationController
     end
     
   end
+ 
   
   def myaccount
-    @MyEvent = Event.paginate(:page => params[:page], :per_page => 6).where(:user_id => current_user.id,  :expire => false).order("event_date ASC")
+    @MyEvent = Event.where(:user_id => current_user.id,  :expire => false).order("event_date ASC").page(params[:page]).per(5)
     if @MyEvent.nil?
       flash[:notice] = "You dont have any project"
     end
@@ -71,5 +77,15 @@ class EventsController < ApplicationController
 
   def destroy
   end
+  
+   private 
+  def check_event_owner
+  @event = Event.find(params[:id])
+  
+    if @event.user_id != current_user.id
+      flash[:notice] = "This is not your event...."
+      redirect_to :myaccount
+    end
+    end
 
 end

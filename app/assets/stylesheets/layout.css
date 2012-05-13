@@ -48,6 +48,7 @@ body{
 
 .ContentHolder .twelve{
 	margin-left: 10px;
+	
 }
 .footer{
 	background: #000;
@@ -58,10 +59,11 @@ body{
 	margin: 10px 5px 0;
 }
 .banner{
-	background: #AAAAAA;
+	background: #FFFF00;
 }
 .white_bg{
 	background: #fff;
+	
 	
 	
 }

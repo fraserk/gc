@@ -43,7 +43,7 @@
       <%= f.check_box :remove_flyer %>
       Remove Flyer
   <% end %>    
-    </label><%= image_tag(@event.flyer_url) if @event.flyer? %>
+    </label><%= image_tag(@event.flyer_url(:small_thumb)) if @event.flyer? %>
 
 <%= f.label :detail, 'Add Some more detail about this event:' %> 
 <%= f.text_area :detail %>
