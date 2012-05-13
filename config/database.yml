@@ -25,10 +25,6 @@ test:
   pool: 5
   timeout: 5000
 
-development:
-  adapter: mysql2
-  encoding: utf8
-  database: gc
-  pool: 5
-  username: root
-  password: laurenb
+production:
+    adapter: mysql2
+  
