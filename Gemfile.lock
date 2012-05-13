@@ -1,3 +1,21 @@
+GIT
+  remote: git://github.com/sferik/rails_admin.git
+  revision: 3c7f7a4b2d604cb310d1fbde2f83bdc82e7e14cd
+  specs:
+    rails_admin (0.0.2)
+      bbenezech-nested_form (~> 0.0.6)
+      bootstrap-sass (~> 2.0)
+      builder (~> 3.0)
+      coffee-rails (~> 3.1)
+      haml (~> 3.1)
+      jquery-rails (>= 1.0.17)
+      jquery-ui-rails (~> 0.2.2)
+      kaminari (~> 0.12)
+      rack-pjax (~> 0.5)
+      rails (~> 3.1)
+      remotipart (~> 1.0)
+      sass-rails (~> 3.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -102,19 +120,6 @@ GEM
       activesupport (= 3.1.0)
       bundler (~> 1.0)
       railties (= 3.1.0)
-    rails_admin (0.0.2)
-      bbenezech-nested_form (~> 0.0.6)
-      bootstrap-sass (~> 2.0)
-      builder (~> 3.0)
-      coffee-rails (~> 3.1)
-      haml (~> 3.1)
-      jquery-rails (>= 1.0.17)
-      jquery-ui-rails (~> 0.2.2)
-      kaminari (~> 0.12)
-      rack-pjax (~> 0.5)
-      rails (~> 3.1)
-      remotipart (~> 1.0)
-      sass-rails (~> 3.1)
     railties (3.1.0)
       actionpack (= 3.1.0)
       activesupport (= 3.1.0)
@@ -168,7 +173,7 @@ DEPENDENCIES
   mysql2
   pg
   rails (= 3.1.0)
-  rails_admin
+  rails_admin!
   rmagick
   sass-rails (= 3.1.5)
   skeleton-rails

@@ -10,7 +10,7 @@ gem 'kaminari'
 gem 'friendly_id'
 gem 'mysql2'
 gem 'meta-tags', :require => 'meta_tags'
-gem 'rails_admin'
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 #gem 'tlsmail' 
 
 # Bundle edge Rails instead:
@@ -26,6 +26,7 @@ end
 # in production environments by default.
 group :assets do
   gem 'sass-rails', '3.1.5'
+  
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
   gem 'therubyracer'
