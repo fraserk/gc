@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
  
-  before_filter :authenticate_user!, :except => [:index,:show]
+  before_filter :authenticate_user!, :except => [:index,:show,:contact]
   before_filter :check_event_owner, :only => :edit
   def index
     
@@ -55,11 +55,12 @@ class EventsController < ApplicationController
  
   
   def myaccount
-    @MyEvent = Event.where(:user_id => current_user.id,  :expire => false).order("event_date ASC").page(params[:page]).per(5)
+    @MyEvent = Event.where(:user_id => current_user.id,  :expire => false).order("event_date ASC").page(params[:page]).per(25)
     if @MyEvent.nil?
       flash[:notice] = "You dont have any project"
     end
   end
+  
   
   def expire
     @event = Event.where("event_date < ?", Date.today)

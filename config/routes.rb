@@ -8,6 +8,9 @@ Events::Application.routes.draw do
   devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' end
   match 'myaccount' => 'events#myaccount'
   match 'expire' => 'events#expire'
+  match 'contact' => 'contact#new', :as => 'contact', :via => :get
+  match 'contact' => 'contact#create', :as => 'contact', :via => :post
+  #match 'contact' => 'events#contact'
   resources :venues
   
     resources :events   do

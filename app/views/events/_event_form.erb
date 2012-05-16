@@ -14,15 +14,9 @@
 <%= f.text_field :name%>
 
 
-<%= f.label :fee %> 
+<%= f.label :fee, 'Admission:' %> 
 <%= f.text_field :fee %>
-<div class="twelve columns">
 
-
-<%= render :partial => 'locations/form',
-             :locals => {:form => f} %>
-
-</div>
 
 <%= f.hidden_field :user_id, {:value => current_user.id} %>
 
@@ -47,7 +41,13 @@
 
 <%= f.label :detail, 'Add Some more detail about this event:' %> 
 <%= f.text_area :detail %>
+<div class="twelve columns">
 
+
+<%= render :partial => 'locations/form',
+             :locals => {:form => f} %>
+
+</div>
 <%= f.submit %>
 
 <% end %>
