@@ -55,13 +55,29 @@ class EventsController < ApplicationController
  
   
   def myaccount
-    @MyEvent = Event.where(:user_id => current_user.id,  :expire => false).order("event_date ASC").page(params[:page]).per(25)
-    if @MyEvent.nil?
+    #@MyEvent = Event.where(:user_id => current_user.id,  :expire => false).order("event_date ASC").page(params[:page]).per(25)
+    #@MyoldEvent = Event.where(:user_id => current_user.id,  :expire => false).order("event_date ASC").page(params[:page]).per(25)
+     
+    #if @MyEvent.nil?
+    #  flash[:notice] = "You dont have any project"
+    #end
+  end
+  
+  def active_event
+        @MyEvent = Event.where(:user_id => current_user.id,  :expire => false).order("event_date ASC").page(params[:page]).per(25)
+        render :partial => 'active_event'
+         if @MyEvent.nil?
       flash[:notice] = "You dont have any project"
     end
   end
   
-  
+    def past_event
+        @MyEvent = Event.where(:user_id => current_user.id,  :expire => true).order("event_date ASC").page(params[:page]).per(25)
+        render :partial => 'past_event'
+         if @MyEvent.nil?
+      flash[:notice] = "--"
+    end
+  end
   def expire
     @event = Event.where("event_date < ?", Date.today)
      @event.each do |r|

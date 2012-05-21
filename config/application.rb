@@ -56,7 +56,7 @@ module Events
 }
 
 config.action_mailer.default_url_options = {
-  :host => "localhost"
+  :host => "goingclubing.com"
 }
   end
 end

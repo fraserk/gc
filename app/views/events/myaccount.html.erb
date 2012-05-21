@@ -4,32 +4,21 @@
 
 <ul class="tabs">
   <!-- Give href an ID value of corresponding "tabs-content" <li>'s -->
-  <li><a class="active" href="#new">Active Events</a></li>
-  <li><a href="#past">Past Events</a></li>
-  <li><a href="#Going">Going</a></li>
+  <li><a href="#news" class= 'active'>News</a></li>
+  <li><%=link_to 'Active Events', '#new', :class => '',:id =>'active',:remote => 'true' %></li>
+  <li><%=link_to 'Past Events', '#old', :class => '',:id =>'past',:remote => 'true' %></li>
+  
 </ul>
 
 
 <ul class="tabs-content">
-	<li class="active" id="new">
-		<% @MyEvent.each do |myevent|%>
-		
-		<div class="three columns event_div" >
-			<%= myevent.event_date.strftime("%B %d %Y") %>
-		</div>
-		<div class="five columns event_div">
-			<%= link_to myevent.name, myevent%>  
-		</div>
-		<div class="three columns event_div">
-			<%= link_to 'Edit', edit_event_path(myevent) %> 
-		</div>
-		<% end %>
-			<div class=" pag_dev columns digg_pagination"> 
-		<%= paginate @MyEvent %>
-		</div>
-	
-	
+	<li id="news" class="active">Welcome to new Goinglubing.com </li>
+
+	<li class="" id="new">
+		<div id="active_event"></div>
 	</li>
-	<li  id="past">this is Past Events</li>
+	<li  class="" id="old">
+		<div id="past_event"></div>
+	</li>
 </ul>
 </div>

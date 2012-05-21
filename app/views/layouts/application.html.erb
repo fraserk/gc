@@ -17,29 +17,30 @@
 		<div class="twehlve">
 			<ul class="nav">
 				<li><%= link_to 'Home', events_path %><li/>
-				<li><%= link_to 'MyAccount', '/myaccount' %><li/>
+				<li><%= link_to 'Account', '/myaccount' %><li/>
 				<li><%= link_to 'Post an Event', new_event_path %><li/>
 				
 				
 				<li>
 					<% if user_signed_in? %> <%=  link_to current_user.username, edit_user_registration_path %> (<%= link_to 'Logout', destroy_user_session_path %>)
 					<%else%>
-					 <%= link_to 'Log in', new_user_session_path%> / <%= link_to 'Sign Up', 'users/sign_up' %> 
+					 <%= link_to 'Log in', new_user_session_path%> / <%= link_to 'Sign Up', '/users/sign_up' %> 
 					<%end%>
 					</> 	
-				<li><%= link_to 'Contact Us', 'contact' %><li/>
+				<li><%= link_to 'Contact Us', contact_path %><li/>
 			</ul>
 		</div><!-- end of nav div -->
 	
 		<div class="ContentHolder twelve columns layout_bg">
 			
 			  <% if flash[:alert] %>
-			  <div class="twelve columns white_bg ">
-			    <p class="error"><%= flash[:alert] %></p>
+			  <div class="twelve columns ">
+			    <p class="error eight columns"><%= flash[:alert] %></p>
+			</div>
 			  <% end %>
 			  <% if flash[:notice] %>
-			  <div class="twelve columns white_bg ">
-			    <p class="notice"><%= flash[:notice] %></p>
+			  <div class="twelve columns ">
+			    <p class="notice eight columns"><%= flash[:notice] %></p>
 			  </div>
 			  <% end %>
 			 
@@ -49,22 +50,23 @@
 		
 		</div> <!-- end of ContentHolder div -->
 		
-		<div class="sidbar">
+		<div class="sidbar four columns">
 			<%= yield :sidbar %> 
 		</div>
+		
 </div>
 <div class="container footer ">
 	<div class=" sixteen columns">
 		<div class="five columns">
 		<ul class="">
 				<li><%= link_to 'Home', events_path %><li/>
-				<li><%= link_to 'MyAccount', '/myaccount' %><li/>
+				<li><%= link_to 'Account', '/myaccount' %><li/>
 				<li><%= link_to 'Post an Event', new_event_path %><li/>
 				
 				<li>
 					<% if user_signed_in? %> <%=  link_to current_user.username, edit_user_registration_path %> (<%= link_to 'Logout', destroy_user_session_path %>)
 					<%else%>
-					 <%= link_to 'Log in', new_user_session_path%> / <%= link_to 'Sign Up', 'users/sign_up' %> 
+					 <%= link_to 'Log in', new_user_session_path%> / <%= link_to 'Sign Up', '/users/sign_up' %> 
 					<%end%>
 					</> 	
 				<li>Contact Us<li/>

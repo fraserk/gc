@@ -2,11 +2,13 @@ Events::Application.routes.draw do
 
 
 
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  mount RailsAdmin::Engine => '/gc_admin', :as => 'rails_admin'
 
   devise_for :users
   devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' end
   match 'myaccount' => 'events#myaccount'
+  match 'active_event' => 'events#active_event' 
+  match 'past_event' => 'events#past_event' 
   match 'expire' => 'events#expire'
   match 'contact' => 'contact#new', :as => 'contact', :via => :get
   match 'contact' => 'contact#create', :as => 'contact', :via => :post

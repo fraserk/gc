@@ -3,8 +3,13 @@
 		
 	});
 	
+$("#active").click(function() {
+  $("#active_event").load("active_event");
+});	
 
-
+$("#past").click(function() {
+  $("#past_event").load("past_event");
+});	
   var defaultZoom = 16; // Why zoomed in? Because it looks good.
   
   // create map and add controls
