@@ -1,7 +1,7 @@
 task :event => :environment do
-    @event = Event.where("event_date < ?", Date.today)
+      @event = Event.where("event_date < ?", Date.today)
      @event.each do |r|
-    if r.recurr?
+    if r.recurr = 't'
       r.update_attributes(:event_date => Time.now + 6.days)
       puts "extends event"
     end

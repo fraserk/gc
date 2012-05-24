@@ -78,7 +78,9 @@ class EventsController < ApplicationController
       flash[:notice] = "--"
     end
   end
+def expire
 
+end
 
 
 
