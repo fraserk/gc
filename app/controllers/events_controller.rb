@@ -78,17 +78,7 @@ class EventsController < ApplicationController
       flash[:notice] = "--"
     end
   end
-  def expire
-    @event = Event.where("event_date < ?", Date.today)
-     @event.each do |r|
-    if r.recurr?
-      r.update_attributes(:event_date => Time.now + 6.days)
-    end
-   if r.recurr = 'f'   
-     r.update_attributes(:expire => "true")
-   end   
-    end
-  end
+
 
 
 
