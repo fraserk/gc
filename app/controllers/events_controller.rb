@@ -79,7 +79,7 @@ class EventsController < ApplicationController
     end
   end
 def expire
-
+   
 end
 
 
