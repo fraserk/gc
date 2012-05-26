@@ -139,13 +139,9 @@ body{
 .flash {
 	padding: 0 10px 0 5px;
 }
-.error {
-    
-    background: #ffc0cb;
-    color: #B8860B;
-}
 
-.notice, .info {
+
+.notice, .info, .error {
     
 background-color:#FCF8E3;
   border-bottom-color:#FBEED5;
@@ -182,6 +178,9 @@ background-color:#FCF8E3;
 
 .sidbar{
 	height: 100%;
+}
+.loc{
+  background-color: #ddd;
 }
 /*ads 
 ===========================*/
