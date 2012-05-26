@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
-
-one:
-  event_date: 2012-04-06 16:58:03
-  events: 
-
-two:
-  event_date: 2012-04-06 16:58:03
-  events: 
