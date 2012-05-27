@@ -9,7 +9,9 @@ Events::Application.routes.draw do
   match 'myaccount' => 'events#myaccount'
   match 'active_event' => 'events#active_event' 
   match 'past_event' => 'events#past_event' 
-  match 'expire' => 'events#expire'
+  match 'profile/:id' => 'events#profile' , :as => 'profile', :via => :get
+  #map.connect "profile/:username", :controller => "events", :action => "profile"
+  # get  'events/profile', :as => 'profile'
   match 'contact' => 'contact#new', :as => 'contact', :via => :get
   match 'contact' => 'contact#create', :as => 'contact', :via => :post
   #match 'contact' => 'events#contact'

@@ -6,7 +6,7 @@
 	<hr />
 		 
 		<p></p><%= @event.detail %></p>
-		Posted By:<%= @event.user.username %>  <br />
+		Posted By:<%= link_to @event.user.username, profile_path(@event.user.username) %>  <br />
 		
 		<hr />
 		

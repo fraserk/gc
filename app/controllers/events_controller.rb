@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
  
-  before_filter :authenticate_user!, :except => [:index,:show,:contact]
+  before_filter :authenticate_user!, :except => [:index,:show,:contact,:profile]
   before_filter :check_event_owner, :only => :edit
   def index
     
@@ -78,8 +78,13 @@ class EventsController < ApplicationController
       flash[:notice] = "--"
     end
   end
-def expire
-   
+
+
+def profile
+ @user = User.where(:username => params[:id])
+ @myprofile = Event.where(:user_id => @user,  :expire => false).order("event_date DESC").page(params[:page]).per(25)
+        
+ #@profile = Event.find("user_id = ?",params[:id])  
 end
 
 
