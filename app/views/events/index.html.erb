@@ -4,7 +4,7 @@
 
 	<% @events_date.each do |eventdate, events|%> 
 		<div class="twelve columns">
-		<h3><%= eventdate.strftime("%B %d %Y")  %></h3>
+		<h3><%= eventdate..to_formatted_s(:long_ordinal)  %></h3>
 		</div>
 		<hr />
 		<% for event in events %>
