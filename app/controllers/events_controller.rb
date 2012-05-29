@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   before_filter :check_event_owner, :only => :edit
   def index
     
-    @events = Event.where("expire != ?", true).order("event_date ASC").page(params[:page]).per(25)
+    @events = Event.where("expire != ?", true).order("event_date DESC").page(params[:page]).per(25)
     @events_date = @events.group_by {|t| t.event_date}
     #Post.paginate()
     @page_description = 'New York & Brooklyn Nightlife party guide. Providing night club listing and party listings. Get on the vip guestlist to the hottest night clubs.'
@@ -81,7 +81,10 @@ class EventsController < ApplicationController
 
 
 def profile
- @user = User.where(:username => params[:id])
+   @page_description = 'New York & Brooklyn Nightlife party guide. Providing night club listing and party listings. Get on the vip guestlist to the hottest night clubs.'
+  @page_keywords    = 'New York City, Manhattan, Night Clubs, Dance Clubs, night life, bars, music, dancing, disco, lounges, under 21, Pary Promoter, Promotion, Night Clubs in Ny, NY nightclub, nite club, vip'
+   
+ @user = User.find_by_username(params[:id])
  @myprofile = Event.where(:user_id => @user,  :expire => false).order("event_date DESC").page(params[:page]).per(25)
         
  #@profile = Event.find("user_id = ?",params[:id])  
