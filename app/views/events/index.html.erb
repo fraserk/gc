@@ -1,9 +1,6 @@
-<div class="twelve columns white_bg ">
 
-
-
-	<% @events_date.each do |eventdate, events|%> 
-		<div class="twelve columns">
+<% @events_date.each do |eventdate, events|%> 
+		<div class="ten columns">
 		<h3><%= eventdate.to_formatted_s(:long_ordinal)  %></h3>
 		</div>
 		<hr />
@@ -18,17 +15,17 @@
 		</div>
 			</div>
 		 
-	<% end %>
+		<% end %>
 	<% end %>
 	
-	 </div>
+	 
 	
 	<div class=" pag_dev columns digg_pagination"> 
 		<%= paginate @events %>
-		</div>
-		
+	</div>
+	</div>	
 		<% content_for :sidbar do %>
-<div class="four columns">
+	<div class="four columns">
 	<h4>Welcome:</h4>
 	<p>
 		To the New Goingclubing.com. Here you can find infomation on Nighlife and night clubs in NYC, Brooklyn, Queens and the Bronx.. 
@@ -36,7 +33,8 @@
 	</div>
 
 	<div class="four columns ads">
+
 		<%= link_to "Advertise Here", contact_path %>
 	</div>
-<% end %>
+	<% end %>
 	

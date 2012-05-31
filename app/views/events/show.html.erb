@@ -1,11 +1,11 @@
-<div class="twelve columns white_bg ">
+
 
 		
 		<h1><%= title @event.name %></h1>
 		
 	<hr />
 		 
-		<p></p><%= @event.detail %></p>
+		<p></p><%= simple_format(@event.detail) %></p>
 		created By:<%= link_to @event.user.username, profile_path(@event.user.username) %>  <br />
 		
 		<hr />

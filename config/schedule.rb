@@ -13,8 +13,8 @@
 #   rake "some:great:rake:task"
 # end
 #
-every 1.day, :at => '6:00 am' do
-   rake "expire:event"
- end
+every 1.day, :at => '5:00 am' do
+  rake "-s sitemap:refresh"
+end
 
 # Learn more: http://github.com/javan/whenever
