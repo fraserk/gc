@@ -7,12 +7,24 @@
   
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">stLight.options({publisher: "d719c163-162f-4fa2-88a6-af5fa49d0147"}); </script>
+<script type="text/javascript">
 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-128168-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </head>
 <body>
 <div class="container">
 	<div class="twelve header">
-		<h1>Goingclubing.com</h1>
+		<a href="/" > <h1>Goingclubing.com</h1></a>
    </div>	<!-- end of header div -->
 		<div class="twehlve">
 			<ul class="nav">
@@ -44,13 +56,13 @@
 			  </div>
 			  <% end %>
 			 
-				
+			
 		
 			<%= yield %> <!-- end of containter div -->
 		
-		</div> <!-- end of ContentHolder div -->
+	</div>
 		
-		<div class="sidbar four columns">
+		<div class="sidbar">
 			<%= yield :sidbar %> 
 		</div>
 		
@@ -69,8 +81,21 @@
 					 <%= link_to 'Log in', new_user_session_path%> / <%= link_to 'Sign Up', '/users/sign_up' %> 
 					<%end%>
 					</> 	
-				<li>Contact Us<li/>
+				<li><%= link_to 'Contact Us' , contact_path %><li/>
 			</ul>	
+			<a title="Google Analytics Alternative" href="http://getclicky.com/176838"><img alt="Google Analytics Alternative" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
+<script type="text/javascript">
+var clicky_site_ids = clicky_site_ids || [];
+clicky_site_ids.push(176838);
+(function() {
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//static.getclicky.com/js';
+  ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+})();
+</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/176838ns.gif" /></p></noscript>
 	</div>
 	<div class="five columns">
 		    Sites We Like.

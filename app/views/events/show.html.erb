@@ -5,8 +5,8 @@
 		
 	<hr />
 		 
-		<p></p><%= @event.detail %></p>
-		Posted By:<%= @event.user.username %>  <br />
+		<p></p><%= simple_format(@event.detail) %></p>
+		created By:<%= link_to @event.user.username, profile_path(@event.user.username) %>  <br />
 		
 		<hr />
 		

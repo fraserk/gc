@@ -14,6 +14,7 @@ gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem "aws-s3", "~> 0.6.2"
 gem 'fog'
 gem 'whenever', :require => false
+gem 'sitemap_generator'
 #gem 'tlsmail' 
 
 # Bundle edge Rails instead:

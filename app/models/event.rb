@@ -8,6 +8,6 @@ class Event < ActiveRecord::Base
   belongs_to :user
   
   accepts_nested_attributes_for :location
-  
+  #scope :active_event, 
   
 end

@@ -1,0 +1,15 @@
+
+<div class="twelve columns white_bg ">
+	<h1><%= title @user.username %></h1>
+	
+    
+	<h5>Upcomming Events</h5>
+	<hr /> 
+	<% @myprofile.each do |p| %>
+	<div class="alpha five columns"> <%= p.event_date.to_formatted_s(:long_ordinal) %></div><div class="omega five columns"> <%= link_to p.name, event_path(p.slug) %> @ <%= p.location.location_name %></div>
+
+	<%end%>
+	<div class=" pag_dev columns digg_pagination"> 
+		<%= paginate @myprofile %>
+		</div>
+</div>

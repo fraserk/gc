@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
  
-  before_filter :authenticate_user!, :except => [:index,:show,:contact]
+  before_filter :authenticate_user!, :except => [:index,:show,:contact,:profile]
   before_filter :check_event_owner, :only => :edit
   def index
     
@@ -78,8 +78,16 @@ class EventsController < ApplicationController
       flash[:notice] = "--"
     end
   end
-def expire
+
+
+def profile
+   @page_description = 'New York & Brooklyn Nightlife party guide. Providing night club listing and party listings. Get on the vip guestlist to the hottest night clubs.'
+  @page_keywords    = 'New York City, Manhattan, Night Clubs, Dance Clubs, night life, bars, music, dancing, disco, lounges, under 21, Pary Promoter, Promotion, Night Clubs in Ny, NY nightclub, nite club, vip'
    
+ @user = User.find_by_username(params[:id])
+ @myprofile = Event.where(:user_id => @user,  :expire => false).order("event_date DESC").page(params[:page]).per(25)
+        
+ #@profile = Event.find("user_id = ?",params[:id])  
 end
 
 
