@@ -10,7 +10,7 @@
 			<div class="four columns ">
 				<%= link_to (image_tag  event.flyer_url(:small_thumb)),event  if event.flyer?  %>
 				<%= link_to (image_tag("gc.gif")) ,event if event.flyer.blank?%>		
-				<div class="banner">	
+		<div class="banner">	
 				<h4><%= link_to truncate(event.name, :length => 17), event %> </h4>
 				@ <%= event.location.location_name %> <%#= '[RECURRING]' if event.recurr? %>
 		</div>
@@ -21,10 +21,11 @@
 	
 	 
 	
-	<div class=" pag_dev columns digg_pagination"> 
+	<div class=" pag_dev six columns digg_pagination"> 
 		<%= paginate @events %>
-	</div>
 	</div>	
+		</div>
+
 		<% content_for :sidbar do %>
 	<div class="four columns">
 	<h4>Welcome:</h4>
