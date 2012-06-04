@@ -6,6 +6,7 @@ class Event < ActiveRecord::Base
   friendly_id :name, use: :slugged
   belongs_to :location
   belongs_to :user
+  has_many :rsvps
   
   accepts_nested_attributes_for :location
   #scope :active_event, 

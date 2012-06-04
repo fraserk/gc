@@ -19,6 +19,18 @@
 
 <% content_for :sidbar do %>
 <div class="four columns">
+	<h3>Going?</h3>
+	<hr />
+<%= form_for ([@event, @event.rsvps.build]) do |f| %>
+	<%= f.hidden_field :event_id %>
+
+	<%= f.hidden_field :user_id, {:value => current_user.id} if user_signed_in? %>
+	
+	<%= f.submit 'IM INTERESTED' %>
+
+<% end%>
+</div>
+<div class="four columns">
 	<h3>When:</h3>
 	<hr />
 	<%= @event.event_date.strftime("%B %d %Y") %> 

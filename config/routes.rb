@@ -2,6 +2,14 @@ Events::Application.routes.draw do
 
 
 
+  get "rsvps/create"
+
+  get "rsvps/new"
+
+  get "rsvps/edit"
+
+  get "rsvps/show"
+
   mount RailsAdmin::Engine => '/gc_admin', :as => 'rails_admin'
 
   devise_for :users
@@ -20,7 +28,8 @@ Events::Application.routes.draw do
     resources :events   do
      # get :autocomplete_venue_name, :on => :collection
      # get "complete"
-    resources :locations
+    resources :locations, :only => [:new, :create]
+    resources :rsvps, :only => [:create]
   end
   
 

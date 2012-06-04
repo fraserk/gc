@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120527034329) do
+ActiveRecord::Schema.define(:version => 20120603173849) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -68,6 +68,16 @@ ActiveRecord::Schema.define(:version => 20120527034329) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "rsvps", :force => true do |t|
+    t.integer  "event_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rsvps", ["event_id"], :name => "index_rsvps_on_event_id"
+  add_index "rsvps", ["user_id"], :name => "index_rsvps_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

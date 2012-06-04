@@ -10,7 +10,7 @@
 
 <%= form_for (@event) do |f|%>
 
-<%= f.label :name %> 
+<%= f.label :name, 'Event Name:' %> 
 <%= f.text_field :name%>
 
 
@@ -20,7 +20,7 @@
 
 <%= f.hidden_field :user_id, {:value => current_user.id} %>
 
-<%= f.label :event_date, 'When:'%> 
+<%= f.label :event_date, 'When Is This Even?:'%> 
 <%= f.text_field :event_date %>
 
 <%= f.label :recurr, 'Is this a Recurring Event?:'%>

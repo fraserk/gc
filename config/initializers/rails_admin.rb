@@ -34,7 +34,7 @@ RailsAdmin.config do |config|
   # config.excluded_models = [Event, Location, Schedule, User, Venue]
 
   # Add models here if you want to go 'whitelist mode':
-   config.included_models = [Event, Location, User, Venue]
+   config.included_models = [Event, Location, User]
 
   # Application wide tried label methods for models' instances
   # config.label_methods << :description # Default is [:name, :title]
