@@ -18,5 +18,5 @@ CarrierWave.configure do |config|
   # :region                 => 'us-east-1'  # optional, defaults to 'us-east-1' 
   }
   config.fog_directory  = 'GC-Data'                     # required
-  config.fog_public     = true                          # optional, defaults to true
+  
 end
