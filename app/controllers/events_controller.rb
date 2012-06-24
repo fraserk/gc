@@ -23,11 +23,11 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
     @subscription = Subscription.find_by_id(@event.id)
       if @event.save
-              if @event.featured && !@subscription
-         redirect_to new_subscription_path(@event) and return  
-        # else         
-        #  redirect_to event_path(@event) and return 
-      end
+      #         if @event.featured && !@subscription
+      #    redirect_to new_subscription_path(@event) and return  
+      #   # else         
+      #   #  redirect_to event_path(@event) and return 
+      # end
         redirect_to event_path(@event)
       else
         
@@ -54,11 +54,11 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @subscription = Subscription.find_by_id(@event.id)
     if @event.update_attributes(params[:event])
-      if @event.featured && !@subscription
-         redirect_to new_subscription_path(@event) and return  
-        # else         
-        #  redirect_to event_path(@event) and return 
-      end
+      # if @event.featured && !@subscription
+      #    redirect_to new_subscription_path(@event) and return  
+      #   # else         
+      #   #  redirect_to event_path(@event) and return 
+      # end
       redirect_to event_path(@event)
     else
       render :action => "edit"
