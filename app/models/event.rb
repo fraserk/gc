@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  validates :name, :detail, :presence => true
+  validates :name, :detail, :event_date, :presence => true
   
   mount_uploader :flyer, FlerUploader
   extend FriendlyId

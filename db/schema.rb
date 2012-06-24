@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120603173849) do
+ActiveRecord::Schema.define(:version => 20120617233730) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20120603173849) do
     t.integer  "location_id"
     t.string   "slug"
     t.date     "event_date"
+    t.boolean  "featured"
   end
 
   add_index "events", ["location_id"], :name => "index_events_on_location_id"
@@ -79,6 +80,15 @@ ActiveRecord::Schema.define(:version => 20120603173849) do
   add_index "rsvps", ["event_id"], :name => "index_rsvps_on_event_id"
   add_index "rsvps", ["user_id"], :name => "index_rsvps_on_user_id"
 
+  create_table "subscriptions", :force => true do |t|
+    t.integer  "event_id"
+    t.string   "stripe_customer_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subscriptions", ["event_id"], :name => "index_subscriptions_on_event_id"
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
@@ -97,11 +107,5 @@ ActiveRecord::Schema.define(:version => 20120603173849) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-
-  create_table "venues", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end

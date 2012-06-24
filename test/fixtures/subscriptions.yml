@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  event_id: 1
+  stripe_customer_token: MyString
+  events: 
+
+two:
+  event_id: 1
+  stripe_customer_token: MyString
+  events: 

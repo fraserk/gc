@@ -1,6 +1,10 @@
 Events::Application.routes.draw do
 
 
+  
+
+
+  get "featured/show"
 
   get "rsvps/create"
 
@@ -24,7 +28,7 @@ Events::Application.routes.draw do
   match 'contact' => 'contact#create', :as => 'contact', :via => :post
   #match 'contact' => 'events#contact'
   resources :venues
-  
+  resources :subscriptions
     resources :events   do
      # get :autocomplete_venue_name, :on => :collection
      # get "complete"

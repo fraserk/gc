@@ -132,6 +132,10 @@ body{
   height: 80px;
   margin: 0 0 8px 0 ;
   }
+  .featured {
+    background-color: #DDD;
+    padding:  5px;
+  }
 /* #error and notice
  * ===========================================
  */

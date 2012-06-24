@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   def index
     
     @events = Event.where("expire != ?", true).order("event_date ASC").page(params[:page]).per(30)
+    #@subscription = Subscription.where()
     @events_date = @events.group_by {|t| t.event_date}
     #Post.paginate()
     @page_description = 'New York & Brooklyn Nightlife party guide. Providing night club listing and party listings. Get on the vip guestlist to the hottest night clubs.'
@@ -20,7 +21,13 @@ class EventsController < ApplicationController
     
   def create
     @event = Event.new(params[:event])
+    @subscription = Subscription.find_by_id(@event.id)
       if @event.save
+              if @event.featured && !@subscription
+         redirect_to new_subscription_path(@event) and return  
+        # else         
+        #  redirect_to event_path(@event) and return 
+      end
         redirect_to event_path(@event)
       else
         
@@ -45,7 +52,13 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
+    @subscription = Subscription.find_by_id(@event.id)
     if @event.update_attributes(params[:event])
+      if @event.featured && !@subscription
+         redirect_to new_subscription_path(@event) and return  
+        # else         
+        #  redirect_to event_path(@event) and return 
+      end
       redirect_to event_path(@event)
     else
       render :action => "edit"

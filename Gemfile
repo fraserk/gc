@@ -15,6 +15,7 @@ gem "aws-s3", "~> 0.6.2"
 gem 'fog'
 gem 'whenever', :require => false
 gem 'sitemap_generator'
+gem 'stripe'
 #gem 'tlsmail' 
 
 # Bundle edge Rails instead:
