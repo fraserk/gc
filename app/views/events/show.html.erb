@@ -47,7 +47,7 @@
 <div class="four columns">
 	<h3>When:</h3>
 	<hr />
-	<%= @event.event_date.strftime("%B %d %Y") %> 
+	<%= @event.event_date.strftime("%B %d %Y") %>  | <%= '<b>[RECURRING]</b>' if event.recurr? %>
 </div>
 
 <div class="four columns">
