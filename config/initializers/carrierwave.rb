@@ -9,7 +9,7 @@
 
 CarrierWave.configure do |config|
   config.cache_dir = "#{Rails.root}/tmp/"
-  # config.storage = :fog
+   config.storage = :fog
   # config.permissions = 0666
   config.fog_credentials = {
     :provider               => 'AWS',       # required
@@ -18,5 +18,6 @@ CarrierWave.configure do |config|
   # :region                 => 'us-east-1'  # optional, defaults to 'us-east-1' 
   }
   config.fog_directory  = 'GC-Data'                     # required
+  
   
 end
