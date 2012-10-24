@@ -1,6 +1,6 @@
 
 <div class="twelve columns white_bg ">
-<div itemscope itemtype="http://data-vocabulary.org/Event">
+
 <% @events_date.each do |eventdate, events|%> 
 		
 			
@@ -9,6 +9,7 @@
 		</div>
 		<hr />
 		<% for event in events %>
+		<div itemscope itemtype="http://data-vocabulary.org/Event">
 		<time itemprop="startDate" datetime="<%= event.event_date.to_time.iso8601 %>"></time>
 			<div class="four columns ">
 				<%= link_to (image_tag  event.flyer_url(:small_thumb)),event  if event.flyer?  %>
