@@ -4,31 +4,30 @@
 	<% @events_date.each do |eventdate, events|%> 
 		
 			
-			<div class="ten columns">	
-<h3><%= eventdate.to_formatted_s(:long_ordinal)  %></h3>
+		<div class="ten columns">	
+			<h3><%= eventdate.to_formatted_s(:long_ordinal)  %></h3>
 		</div>
-		<hr />
-		<% for event in events %>
-	
-		
-		<div class="four columns " itemscope itemtype="http://data-vocabulary.org/Event">
-			<time itemprop="startDate" datetime="<%= event.event_date.to_time.iso8601 %>"></time>
-				<%= link_to (image_tag  event.flyer_url(:small_thumb)),event  if event.flyer?  %>
-				<%= link_to (image_tag("gc.gif",:itemprop=>"photo")) ,event if event.flyer.blank?%>		
-		<div class="banner">	
-			<h4 itemprop="summary"><%= link_to truncate(event.name ,:length => 17), event, :itemprop => "url" %> </h4>
-				@ <%= event.location.location_name %> <%#= '[RECURRING]' if event.recurr? %>
-		</div>
+				<hr />
+			<% for event in events %>			
+				
+				<div class="four columns " itemscope itemtype="http://data-vocabulary.org/Event">
+					<time itemprop="startDate" datetime="<%= event.event_date.to_time.iso8601 %>"></time>
+						<%= link_to (image_tag  event.flyer_url(:small_thumb)),event  if event.flyer?  %>
+						<%= link_to (image_tag("gc.gif",:itemprop=>"photo")) ,event if event.flyer.blank?%>		
+					<div class="banner">	
+						<h4 itemprop="summary"><%= link_to truncate(event.name ,:length => 17), event, :itemprop => "url" %> </h4>
+						@ <%= event.location.location_name %> <%#= '[RECURRING]' if event.recurr? %>
+					</div>
 
+				</div>
 		</div>
-		
 		 
 		<% end %>
 	<% end %>
 	
 	 
 	
-	<div class=" pag_dev twelve columns digg_pagination"> 
+	<div class=" pag_dev ten columns digg_pagination"> 
 		<%= paginate @events %>
 	</div>	
 		</div>
