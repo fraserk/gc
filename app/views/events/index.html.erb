@@ -1,15 +1,15 @@
 
 <div class="twelve columns white_bg ">
-
+<div itemscope itemtype="http://data-vocabulary.org/Event">
 <% @events_date.each do |eventdate, events|%> 
 		
-			<div itemscope itemtype="http://data-vocabulary.org/Event">
+			
 			<div class="ten columns">	
-<h3><time itemprop="startDate" datetime="<%= eventdate.to_time.iso8601 %>"><%= eventdate.to_formatted_s(:long_ordinal)  %></time</h3>
+<h3><%= eventdate.to_formatted_s(:long_ordinal)  %></h3>
 		</div>
 		<hr />
 		<% for event in events %>
-		
+		<time itemprop="startDate" datetime="<%= event.event_date.to_time.iso8601 %>"></time>
 			<div class="four columns ">
 				<%= link_to (image_tag  event.flyer_url(:small_thumb)),event  if event.flyer?  %>
 				<%= link_to (image_tag("gc.gif",:itemprop=>"photo")) ,event if event.flyer.blank?%>		
