@@ -1,8 +1,10 @@
-<div itemscope itemtype="http://data-vocabulary.org/Event">
+
 <div class="twelve columns white_bg ">
 
 <% @events_date.each do |eventdate, events|%> 
 		<div class="ten columns">
+			<div itemscope itemtype="http://data-vocabulary.org/Event">
+				
 		<h3><time itemprop="startDate" datetime="<%= eventdate.to_time.iso8601 %>"><%= eventdate.to_formatted_s(:long_ordinal)  %></time</h3>
 		</div>
 		<hr />
