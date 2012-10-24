@@ -9,9 +9,10 @@
 		</div>
 		<hr />
 		<% for event in events %>
-	<div itemscope itemtype="http://data-vocabulary.org/Event"></div>
-		<time itemprop="startDate" datetime="<%= event.event_date.to_time.iso8601 %>"></time>
-		<div class="four columns ">
+	
+		
+		<div class="four columns " itemscope itemtype="http://data-vocabulary.org/Event">
+			<time itemprop="startDate" datetime="<%= event.event_date.to_time.iso8601 %>"></time>
 				<%= link_to (image_tag  event.flyer_url(:small_thumb)),event  if event.flyer?  %>
 				<%= link_to (image_tag("gc.gif",:itemprop=>"photo")) ,event if event.flyer.blank?%>		
 		<div class="banner">	
@@ -19,8 +20,6 @@
 				@ <%= event.location.location_name %> <%#= '[RECURRING]' if event.recurr? %>
 		</div>
 
-		<div>
-			<%=truncate(event.detail ,:length => 40)%>
 		</div>
 		
 		 
