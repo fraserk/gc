@@ -15,7 +15,7 @@
 						<%= link_to (image_tag  event.flyer_url(:small_thumb)),event  if event.flyer?  %>
 						<%= link_to (image_tag("gc.gif",:itemprop=>"photo")) ,event if event.flyer.blank?%>		
 					<div class="banner">	
-						<h4 itemprop="summary"><%= link_to truncate(event.name ,:length => 17), event, :itemprop => "url" %> </h4>
+						<h4 itemprop="summary"><%= link_to truncate(event.name ,:length => 25), event, :itemprop => "url" %> </h4>
 						@ <%= event.location.location_name %> <%#= '[RECURRING]' if event.recurr? %>
 					</div>
 
@@ -44,4 +44,4 @@
 		<%= link_to "Advertise Here", contact_path %>
 	</div>
 	<% end %>
-	</div>
+	
