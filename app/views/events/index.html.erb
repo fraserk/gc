@@ -19,7 +19,7 @@
 					<div class="seven columns">	
 						<h4 itemprop="summary"><%= link_to truncate(event.name ,:length => 25), event, :itemprop => "url" %> </h4>
 						 <h5>@ <%= event.location.location_name %></h5> <%#= '[RECURRING]' if event.recurr? %>
-						<%= truncate(event.detail ,:length => 250) %>
+						<%= truncate(event.detail ,:length => 350) %>
 					</div>
 
 				</div>
