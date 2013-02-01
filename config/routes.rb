@@ -34,6 +34,9 @@ Events::Application.routes.draw do
      # get "complete"
     resources :locations, :only => [:new, :create]
     resources :rsvps, :only => [:create]
+    collection do
+      delete 'destroy_multiple'
+    end
   end
   
 

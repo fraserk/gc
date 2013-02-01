@@ -1,5 +1,10 @@
+<%= form_tag destroy_multiple_events_path, method: :delete do %>
 <% @MyEvent.each do |myevent|%>
 		
+		
+		<div class="one columns event_div">
+			<%= check_box_tag "events[]", myevent.id %>
+		</div>
 		<div class="three columns event_div" >
 			<%= myevent.event_date.strftime("%B %d %Y") %>
 		</div>
@@ -14,4 +19,6 @@
 		
 		</div>
 	<% end %>
+	<%= submit_tag "Delete selected" %>
+<% end %>
 	<%#= paginate @MyEvent %>

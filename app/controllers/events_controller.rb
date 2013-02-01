@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
  
-  before_filter :authenticate_user!, :except => [:index,:show,:contact,:profile]
+  before_filter :authenticate_user!, :except => [:index,:show,:contact,:profile,:destroy_multiple]
   before_filter :check_event_owner, :only => :edit
   def index
     
@@ -103,7 +103,16 @@ def profile
  #@profile = Event.find("user_id = ?",params[:id])  
 end
 
+  def destroy_multiple
 
+  Event.destroy(params[:events])
+
+  respond_to do |format|
+    format.html { redirect_to myaccount_path,:notice => 'Event deleted...' }
+    format.json { head :no_content }
+  end
+
+end
 
   def destroy
   end
